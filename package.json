@@ -1,5 +1,7 @@
 {
   "name": "learn_enough_action_cable",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
 }
