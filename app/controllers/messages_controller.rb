@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   def create
     message = current_user.messages.build(message_params)
     if message.save
-      ActionCable.server.broadcast 'room_channel', content: message.content, username: message.user.username
+      ActionCable.server.broadcast 'room_channel', message: render_message(message)
     else
       render 'index'
     end
@@ -24,5 +24,9 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def render_message(message)
+    render(partial: 'message', locals: { message: message })
   end
 end
