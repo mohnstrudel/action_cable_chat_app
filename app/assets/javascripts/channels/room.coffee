@@ -8,9 +8,11 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   received: (data) ->
     # console.log "User: " + data.username + " and his message: " + data.content
     # Called when there's incoming data on the websocket for this channel
-    unless data.message.blank?
+    console.log(data.mention)
+    alert("You have a new mention!") if data.mention
+    if (data.message && !data.message.blank?)
       $('#messages-table').append data.message
-      console.log(data.message)
+      
       scroll_bottom()
 
 $(document).on 'turbolinks:load', ->

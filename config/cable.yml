@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:14cf267bb2bcd2e012f85e6ac4dfae8e@greeneye.redistogo.com:10589/
   channel_prefix: learn_enough_action_cable_production
